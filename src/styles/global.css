@@ -6,18 +6,9 @@
 html,
 body,
 #__next {
-  font-family: sans-serif;
-  @apply flex flex-col min-h-screen;
-  @apply dark:bg-dark-500;
+  @apply flex min-h-screen flex-col dark:bg-dark-500 dark:text-gray-300;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-input,
-div {
-  @apply dark:text-gray-300;
+html {
+  font-family: sans-serif;
 }

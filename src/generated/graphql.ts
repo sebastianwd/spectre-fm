@@ -98,6 +98,15 @@ export type ArtistQueryQuery = {
   }
 }
 
+export type SearchArtistQueryQueryVariables = Exact<{
+  artist: Scalars['String']
+}>
+
+export type SearchArtistQueryQuery = {
+  __typename?: 'Query'
+  searchArtists: Array<string>
+}
+
 export const ArtistQueryDocument = gql`
   query artistQuery($name: String!) {
     artist(name: $name) {
@@ -109,6 +118,11 @@ export const ArtistQueryDocument = gql`
       style
       logo
     }
+  }
+`
+export const SearchArtistQueryDocument = gql`
+  query searchArtistQuery($artist: String!) {
+    searchArtists(artist: $artist)
   }
 `
 
@@ -140,6 +154,21 @@ export function getSdk(
             ...wrappedRequestHeaders,
           }),
         'artistQuery',
+        'query'
+      )
+    },
+    searchArtistQuery(
+      variables: SearchArtistQueryQueryVariables,
+      requestHeaders?: Dom.RequestInit['headers']
+    ): Promise<SearchArtistQueryQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<SearchArtistQueryQuery>(
+            SearchArtistQueryDocument,
+            variables,
+            { ...requestHeaders, ...wrappedRequestHeaders }
+          ),
+        'searchArtistQuery',
         'query'
       )
     },

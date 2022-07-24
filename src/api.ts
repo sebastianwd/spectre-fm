@@ -7,13 +7,13 @@ const gqlClient = new GraphQLClient(
   `${process.env.NEXT_PUBLIC_ENDPOINT}/api/graphql`
 )
 
-export const { artistQuery } = getSdk(gqlClient)
+export const { artistQuery, searchArtistQuery } = getSdk(gqlClient)
 
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnMount: false,
-      refetchOnWindowFocus: false,
+      refetchOnWindowFocus: true,
       refetchOnReconnect: false,
     },
   },

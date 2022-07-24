@@ -21,13 +21,13 @@ const MenuItem = ({ children, icon, href }: MenuItemProps) => {
       } rounded-[24px] transition-colors duration-300`}
     >
       <Link href={href}>
-        <a className="truncate md:px-8 block md:w-full md:py-3">
+        <a className="block truncate md:w-full md:px-8 md:py-3">
           <span className="flex md:flex-col md:items-center">
             {React.cloneElement(icon, {
               className: `${'w-7 md:mx-2 mx-4 inline'} ${icon.props.className}`,
             })}
             <span
-              className={`hidden md:inline text-gray-200 group-hover:text-gray-100 text-sm font-medium`}
+              className={`hidden text-sm font-medium text-gray-200 group-hover:text-gray-100 md:inline`}
             >
               {children}
             </span>
@@ -41,18 +41,18 @@ const MenuItem = ({ children, icon, href }: MenuItemProps) => {
 export const Menu = () => {
   return (
     <>
-      <div className="w-full px-4 md:px-0 md:w-[140px] md:fixed sticky top-0 h-full md:pb-24">
-        <div className="sticky top-0 p-4 md:px-0 bg-dark-800 rounded-[40px] h-full flex flex-grow justify-center">
-          <ul className="flex md:flex-col overflow-hidden md:py-10 md:[&>*]:mb-4">
+      <div className="sticky top-0 h-full w-full px-4 md:fixed md:w-[140px] md:px-0 md:pb-24">
+        <div className="sticky top-0 flex h-full flex-grow justify-center rounded-[40px] bg-dark-600 p-4 md:px-0">
+          <ul className="flex overflow-hidden md:flex-col md:py-10 md:[&>*]:mb-4">
             <MenuItem
               href="/"
-              icon={<HomeIcon className="stroke-zinc-200 fill-zinc-200" />}
+              icon={<HomeIcon className="fill-zinc-200 stroke-zinc-200" />}
             >
               Home
             </MenuItem>
             <MenuItem
               href="/me/playlists"
-              icon={<HomeIcon className="stroke-zinc-200 fill-zinc-200" />}
+              icon={<HomeIcon className="fill-zinc-200 stroke-zinc-200" />}
             >
               Playlists
             </MenuItem>

@@ -1,31 +1,67 @@
 import { Combobox, Dialog } from '@headlessui/react'
-import { SearchIcon } from '@heroicons/react/solid'
-import React from 'react'
+import { CheckIcon, SearchIcon } from '@heroicons/react/solid'
+import React, { Fragment } from 'react'
 
-export const CommandPalette = ({ commands }) => {
-  const [isOpen, setIsOpen] = React.useState(true)
+import { SpinnerIcon } from '../icons/spinner'
 
+interface CommandPaletteProps {
+  commands: string[]
+  isOpen: boolean
+  isLoading?: boolean
+  onClose: () => void
+  onInputChange: (value: string) => void
+  onSelect: (value: string) => void
+  value: string
+}
+
+export const CommandPalette = ({
+  commands,
+  isOpen = false,
+  onClose,
+  isLoading,
+  onInputChange,
+  onSelect,
+  value,
+}: CommandPaletteProps) => {
   return (
     <Dialog
       open={isOpen}
-      onClose={setIsOpen}
+      onClose={onClose}
       className="fixed inset-0 overflow-y-auto p-4 pt-[15vh]"
     >
       <Dialog.Overlay className="fixed inset-0 bg-dark-600/75" />
       <Combobox
         as="div"
-        className="relative mx-auto max-w-xl rounded-xl bg-dark-400 shadow-2xl ring-1 ring-black/5 flex items-center px-4"
-        onChange={(command) => {
-          // we have access to the selected command
-          // a redirect can happen here or any action can be executed
-          setIsOpen(false)
+        value={value}
+        className="relative mx-auto max-w-xl"
+        onChange={(command: string) => {
+          onSelect(command)
         }}
       >
-        <Combobox.Input
-          className=" w-full border-0 text-md bg-transparent  text-gray-800  focus:ring-0 outline-none py-4"
-          placeholder="Search..."
-        />
-        <SearchIcon className="h-6 w-6 text-slate-300" />
+        <div className="flex items-center rounded-xl  bg-dark-400 px-4 shadow-2xl ring-1 ring-black/5">
+          <Combobox.Input
+            onChange={(e) => onInputChange(e.target.value)}
+            className=" text-md w-full border-0 bg-transparent  py-4 outline-none focus:ring-0"
+            placeholder="Search..."
+          />
+          {isLoading ? <SpinnerIcon /> : <SearchIcon className="h-6 w-6" />}
+        </div>
+        <Combobox.Options className="absolute mt-1 max-h-64 w-full overflow-auto rounded-md">
+          {commands.map((command) => (
+            <Combobox.Option key={command} value={command} as={Fragment}>
+              {({ active, selected }) => (
+                <li
+                  className={`relative cursor-default select-none py-2 px-4 ${
+                    active ? 'bg-dark-300 text-white' : 'bg-dark-400'
+                  }`}
+                >
+                  {selected && <CheckIcon />}
+                  {command}
+                </li>
+              )}
+            </Combobox.Option>
+          ))}
+        </Combobox.Options>
       </Combobox>
     </Dialog>
   )
