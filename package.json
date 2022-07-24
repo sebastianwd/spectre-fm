@@ -1,24 +1,70 @@
 {
-  "name": "spectrefm-final",
+  "name": "spectre-fm",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "gen": "graphql-codegen",
     "start": "next start",
     "lint": "next lint"
   },
+  "resolutions": {
+    "graphql": "^15.3.0"
+  },
+  "engines": {
+    "node": ">=16.6.1"
+  },
   "dependencies": {
+    "@headlessui/react": "^1.6.4",
+    "@heroicons/react": "^1.0.6",
+    "@types/lodash": "^4.14.182",
+    "apollo-server-micro": "^3.10.0",
+    "axios": "^0.27.2",
+    "class-validator": "^0.13.2",
+    "common-tags": "^1.8.2",
+    "graphql": "^15.3.0",
+    "graphql-request": "^4.3.0",
+    "lodash": "^4.17.21",
+    "micro": "^9.4.0",
+    "micro-cors": "^0.1.1",
     "next": "12.1.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-query": "^3.39.2",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.9.1",
+    "@graphql-codegen/introspection": "^2.2.0",
+    "@graphql-codegen/typescript": "^2.7.2",
+    "@graphql-codegen/typescript-graphql-request": "^4.5.2",
+    "@graphql-codegen/typescript-operations": "^2.5.2",
+    "@graphql-codegen/typescript-react-query": "^3.6.2",
+    "@tailwindcss/typography": "^0.5.2",
+    "@types/common-tags": "^1.8.1",
+    "@types/micro-cors": "^0.1.2",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
-    "eslint": "8.17.0",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "autoprefixer": "^10.4.7",
+    "eslint": "^8.17.0",
     "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
+    "prisma": "^3.15.2",
+    "tailwindcss": "^3.1.3",
     "typescript": "4.7.3"
   }
 }

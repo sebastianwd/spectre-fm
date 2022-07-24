@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+html,
+body,
+#__next {
+  font-family: sans-serif;
+  @apply flex flex-col min-h-screen;
+  @apply dark:bg-dark-500;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+input,
+div {
+  @apply dark:text-gray-300;
+}
