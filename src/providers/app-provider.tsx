@@ -8,7 +8,7 @@ const AppProvider = (props: { children: React.ReactNode; pageProps: any }) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>{children}</Hydrate>
+      <Hydrate state={pageProps?.dehydratedState}>{children}</Hydrate>
     </QueryClientProvider>
   )
 }

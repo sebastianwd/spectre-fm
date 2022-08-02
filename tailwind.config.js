@@ -1,18 +1,27 @@
 /** @type {import('tailwindcss').Config} */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    colors: {
+      primary: {
+        500: '#FC3967',
+      },
+      ...colors,
+    },
     extend: {
       colors: {
         dark: {
-          300: '#8B8B8B',
-          400: '#3F3F3F',
-          500: '#1B1C22',
+          300: '#CBCCCC',
+          400: '#AAAAAA',
+          500: '#202020',
           600: '#121212',
-          700: '#171717',
-          800: '#0F0F10',
-          900: '#030303',
+          700: '#110F10',
+          800: '#0E0C0D',
+          900: '#0C0C0C',
         },
       },
       fontFamily: {

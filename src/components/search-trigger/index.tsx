@@ -13,7 +13,7 @@ export const SearchTrigger = (props: Props) => {
       <button
         type="button"
         onClick={props.onClick}
-        className={`flex items-center rounded-xl leading-6  text-gray-300/60  shadow-sm  transition-all hover:ring-2  hover:ring-dark-700  dark:bg-dark-700 dark:hover:brightness-110 ${
+        className={`flex items-center rounded-xl leading-6 text-gray-300/60 shadow-sm transition-all hover:ring-2 hover:ring-dark-700 dark:bg-dark-500 dark:hover:brightness-110 ${
           props.className || 'py-1.5 px-2'
         }`}
       >

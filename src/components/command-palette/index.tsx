@@ -38,10 +38,10 @@ export const CommandPalette = ({
           onSelect(command)
         }}
       >
-        <div className="flex items-center rounded-xl  bg-dark-400 px-4 shadow-2xl ring-1 ring-black/5">
+        <div className="flex items-center rounded-xl bg-dark-500 px-4 shadow-2xl ring-dark-500/70 focus-within:ring-2">
           <Combobox.Input
             onChange={(e) => onInputChange(e.target.value)}
-            className=" text-md w-full border-0 bg-transparent  py-4 outline-none focus:ring-0"
+            className=" text-md w-full border-0 bg-transparent py-4 outline-none ring-0"
             placeholder="Search..."
           />
           {isLoading ? <SpinnerIcon /> : <SearchIcon className="h-6 w-6" />}
@@ -52,7 +52,7 @@ export const CommandPalette = ({
               {({ active, selected }) => (
                 <li
                   className={`relative cursor-default select-none py-2 px-4 ${
-                    active ? 'bg-dark-300 text-white' : 'bg-dark-400'
+                    active ? 'bg-dark-800 text-white' : 'bg-dark-500'
                   }`}
                 >
                   {selected && <CheckIcon />}

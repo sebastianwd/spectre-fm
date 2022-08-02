@@ -7,5 +7,6 @@ query artistQuery($name: String!) {
     formedYear
     style
     logo
+    image
   }
 }

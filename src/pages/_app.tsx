@@ -1,19 +1,18 @@
 import '../styles/global.css'
 
 import { debounce } from 'lodash'
-import type { AppType } from 'next/dist/shared/lib/utils'
+import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useCallback, useEffect, useState } from 'react'
 
 import { searchArtistQuery } from '~/api'
 import { CommandPalette } from '~/components/command-palette'
+import { MainLayout } from '~/layouts/main'
 import AppProvider from '~/providers/app-provider'
 import { useGlobalSearchStore } from '~/store/use-global-search'
 
-const MyApp: AppType = (props) => {
-  const { Component, pageProps } = props
-
+const ArtistSearchCommandPalette = () => {
   const { isOpen, setIsOpen, search, setSearch, setResults, results } =
     useGlobalSearchStore()
 
@@ -47,29 +46,37 @@ const MyApp: AppType = (props) => {
     }
   }, [delayedSearch, search])
 
+  return isOpen ? (
+    <CommandPalette
+      onSelect={(value) => {
+        setIsOpen(false)
+        router.push(`/artist/${value}`)
+      }}
+      commands={results}
+      value={search}
+      isLoading={isSearching}
+      onInputChange={(value) => setSearch(value)}
+      isOpen={isOpen}
+      onClose={() => setIsOpen(false)}
+    />
+  ) : null
+}
+
+const MyApp = (props: AppProps) => {
+  const { Component, pageProps } = props
+
   return (
-    <AppProvider pageProps={pageProps}>
+    <AppProvider pageProps={pageProps.props}>
       <Head>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <Component {...pageProps} />
-      {isOpen && (
-        <CommandPalette
-          onSelect={(value) => {
-            setIsOpen(false)
-            router.push(`/artist/${value}`)
-          }}
-          commands={results}
-          value={search}
-          isLoading={isSearching}
-          onInputChange={(value) => setSearch(value)}
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
-        />
-      )}
+      <MainLayout>
+        <Component {...pageProps} />
+      </MainLayout>
+      <ArtistSearchCommandPalette />
     </AppProvider>
   )
 }

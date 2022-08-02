@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ['www.theaudiodb.com'],
+    allowFutureImage: true,
+  },
   reactStrictMode: true,
   webpack: (config) => {
     if (!config.experiments) {

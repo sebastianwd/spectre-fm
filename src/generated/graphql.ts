@@ -95,6 +95,7 @@ export type ArtistQueryQuery = {
     formedYear: string | null
     style: string | null
     logo: string | null
+    image: string | null
   }
 }
 
@@ -117,6 +118,7 @@ export const ArtistQueryDocument = gql`
       formedYear
       style
       logo
+      image
     }
   }
 `
