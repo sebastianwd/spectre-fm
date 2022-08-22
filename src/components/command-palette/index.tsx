@@ -27,7 +27,7 @@ export const CommandPalette = ({
     <Dialog
       open={isOpen}
       onClose={onClose}
-      className="fixed inset-0 overflow-y-auto p-4 pt-[15vh]"
+      className="fixed inset-0 z-50 overflow-y-auto p-4 pt-[15vh]"
     >
       <Dialog.Overlay className="fixed inset-0 bg-dark-600/75" />
       <Combobox
