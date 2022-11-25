@@ -3,9 +3,7 @@ import { QueryClient } from 'react-query'
 
 import { getSdk } from '~/generated/graphql'
 
-const gqlClient = new GraphQLClient(
-  `${process.env.NEXT_PUBLIC_ENDPOINT}/api/graphql`
-)
+const gqlClient = new GraphQLClient(`/api/graphql`)
 
 export const { artistQuery, searchArtistQuery } = getSdk(gqlClient)
 

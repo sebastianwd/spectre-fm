@@ -1,5 +1,5 @@
 import { Combobox, Dialog } from '@headlessui/react'
-import { CheckIcon, SearchIcon } from '@heroicons/react/solid'
+import { CheckIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import React, { Fragment } from 'react'
 
 import { SpinnerIcon } from '../icons/spinner'
@@ -44,7 +44,11 @@ export const CommandPalette = ({
             className=" text-md w-full border-0 bg-transparent py-4 outline-none ring-0"
             placeholder="Search..."
           />
-          {isLoading ? <SpinnerIcon /> : <SearchIcon className="h-6 w-6" />}
+          {isLoading ? (
+            <SpinnerIcon />
+          ) : (
+            <MagnifyingGlassIcon className="h-6 w-6" />
+          )}
         </div>
         <Combobox.Options className="absolute mt-1 max-h-64 w-full overflow-auto rounded-md">
           {commands.map((command) => (

@@ -1,4 +1,4 @@
-import { SearchIcon } from '@heroicons/react/solid'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 
 interface Props {
   className?: string
@@ -18,7 +18,7 @@ export const SearchTrigger = (props: Props) => {
         }`}
       >
         <span>Search artist...</span>
-        <SearchIcon className="ml-auto h-6 w-6 flex-none" />
+        <MagnifyingGlassIcon className="ml-auto h-6 w-6 flex-none" />
       </button>
     </div>
   )

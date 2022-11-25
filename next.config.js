@@ -3,11 +3,6 @@ const nextConfig = {
   images: {
     domains: ['www.theaudiodb.com'],
   },
-  experimental: {
-    images: {
-      allowFutureImage: true,
-    },
-  },
   reactStrictMode: true,
   webpack: (config) => {
     if (!config.experiments) {

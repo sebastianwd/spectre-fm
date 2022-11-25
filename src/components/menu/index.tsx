@@ -1,4 +1,4 @@
-import { HomeIcon, SearchIcon } from '@heroicons/react/solid'
+import { HomeIcon, MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -57,7 +57,10 @@ export const Menu = () => {
             <MenuItem href="/" icon={<HomeIcon />}>
               Home
             </MenuItem>
-            <MenuItem onClick={() => setIsOpen(true)} icon={<SearchIcon />}>
+            <MenuItem
+              onClick={() => setIsOpen(true)}
+              icon={<MagnifyingGlassIcon />}
+            >
               Search
             </MenuItem>
           </ul>
