@@ -4,6 +4,9 @@ const nextConfig = {
     domains: ['www.theaudiodb.com'],
   },
   reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   webpack: (config) => {
     if (!config.experiments) {
       config.experiments = {}
